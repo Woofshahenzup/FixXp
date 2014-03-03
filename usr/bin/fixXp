@@ -1,0 +1,44 @@
+#!/bin/sh
+# nilsonmorales 2-marzo-2014
+# Fix Windows ntldr, NDETECT.COM y reescribir mbr
+# Version 1.1
+# Licencia GNU Version 2
+ 
+# Colores de variables
+execstyle="[\e[01;32mx\e[00m]" # Mensajes de ejecución
+infostyle="[\e[01;34minfo\e[00m]" # Menajes de información
+
+clear
+read -p "Presione Enter para listar las particiones. "
+fdisk -l
+echo -n " Ingrese el nombre de la partición ej: (sda1, sda2)"
+echo ""
+read -e DISK
+echo -e "$execstyle Montando /dev/$DISK a /mnt/Windows"
+mkdir -p /mnt/Windows
+mount -t ntfs /dev/$DISK /mnt/Windows
+read -p "    Presiona enter para copiar los archivos :) "
+echo ""
+echo -n "Quieres copiar ntldr? s/n: "
+read ntldr
+if [ "$ntldr" == "s" ]; then
+cp ~/my-applications/fixntldr/ntldr /mnt/Windows
+fi
+echo ""
+echo -n "Quieres copiar NDETECT.COM? s/n: "
+read ndetect
+if [ "$ndetect" == "s" ]; then
+cp ~/my-applications/fixntldr/NTDETECT.COM /mnt/Windows
+fi
+echo ""
+echo -n "Quieres reescribir la mbr? s/n: "
+read mbrfix
+if [ "$mbrfix" == "s" ]; then
+ms-sys -m /dev/$DISK
+fi
+echo ""
+read -p "   Presione Enter para continuar."
+read -p "    Presione Enter para desmontar partición."
+echo -e "$execstyle Desmontando la partición "
+umount /mnt/Windows
+read -p "    Presione Enter para salir. "
