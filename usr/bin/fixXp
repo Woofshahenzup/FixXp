@@ -1,8 +1,9 @@
 #!/bin/sh
 # nilsonmorales 2-marzo-2014
 # Fix Windows ntldr, NDETECT.COM y reescribir mbr
-# Version 1.1
+# Version 1.1.1
 # Licencia GNU Version 2
+# 05032014 bugfix rewriting mbr by lemaster 
  
 # Colores de variables
 execstyle="[\e[01;32mx\e[00m]" # Mensajes de ejecución
@@ -34,7 +35,7 @@ echo ""
 echo -n "Quieres reescribir la mbr? s/n: "
 read mbrfix
 if [ "$mbrfix" == "s" ]; then
-ms-sys -m /dev/$DISK
+ms-sys -w /dev/sda
 fi
 echo ""
 read -p "   Presione Enter para continuar."
