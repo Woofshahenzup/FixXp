@@ -36,6 +36,7 @@ echo -n "Quieres reescribir la mbr? s/n: "
 read mbrfix
 if [ "$mbrfix" == "s" ]; then
 ms-sys -w /dev/sda
+ms-sys -m /dev/sda
 fi
 echo ""
 read -p "   Presione Enter para continuar."
