@@ -5,7 +5,7 @@ Simple script para copiar ntldr, NDETECT.COM y reparar la mbr desde PuppyLinux.
 
 # Dependencias.
 [ms_sys-2.3.0.pet]
-(http://ubuntuone.com/6Y7DasCIzWXLcDBs8DWaFe)
+(https://copy.com/zMfd0khESJGi)
 
 # Paquete .pet
 [fixXp-1.1.pet]
