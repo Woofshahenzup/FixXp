@@ -9,7 +9,7 @@ Simple script para copiar ntldr, NDETECT.COM y reparar la mbr desde PuppyLinux.
 
 # Paquete .pet
 [fixXp-1.1.pet]
-(http://ubuntuone.com/5ulpB8DBo0iQV4dmUzeQIU)
+(https://copy.com/V24MHvM2lN0H)
 
 De los mas simple copia los archivos ntldr y NDETECT.COM en la partición donde esta 
 alojado Windows, tambien puede escribir el mbr (master boot record) de windows xp.
